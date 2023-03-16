@@ -24,3 +24,110 @@
 .imageclass {
   width: 13px;
 }
+
+element.style {
+  display: flex;
+}
+
+.lmao {
+  display: flex;
+}
+
+.section1 {
+  margin-bottom: 3em;
+}
+
+.section1image{
+  margin-right: 3em;
+}
+.content1{
+  margin-top:-25px;
+}
+.btn1{
+margin-right: 2.5em;
+margin-right: 2.5em;
+font-family: "Roboto", sans-serif;
+font-size: 15px;
+font-weight: bold;
+background: #1E90FF;
+width: 120px;
+height: 60px;
+padding: 20px;
+text-align: center;
+text-decoration: none;
+text-transform: uppercase;
+color: #fff;
+border-radius: 8px;
+cursor: pointer;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+-webkit-transition-duration: 0.3s;
+transition-duration: 0.3s;
+-webkit-transition-property: box-shadow, transform;
+transition-property: box-shadow, transform;
+}
+.btn2{
+  font-family: "Roboto", sans-serif;
+font-size: 15px;
+font-weight: bold;
+background: #1E90FF;
+width: 120px;
+padding: 20px;
+height: 60px;
+text-align: center;
+text-decoration: none;
+text-transform: uppercase;
+color: #fff;
+border-radius: 8px;
+cursor: pointer;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+-webkit-transition-duration: 0.3s;
+transition-duration: 0.3s;
+-webkit-transition-property: box-shadow, transform;
+transition-property: box-shadow, transform;
+}
+.sect2{
+  margin-right: 2.5em;
+  margin-top: -25px;
+
+}
+.btn3{
+  margin-right: 2.5em;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  background: #1E90FF;
+  width: 120px;
+  padding: 20px;
+  height: 60px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.btn4{
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  background: #1E90FF;
+  width: 120px;
+  padding: 20px;
+  height: 60px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
