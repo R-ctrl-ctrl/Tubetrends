@@ -1,35 +1,20 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/Navbar'
-import axios from 'axios';
-import { saveAs } from 'file-saver';
-
+import { extractAudioFromVideoLink } from './utils';
+import styles from '../styles/Home.module.css'
 const audiofile = () => {
-    const [embedLink, setEmbedLink] = useState('')
-    const [audioFile, setAudioFile] = useState('')
-  
-    const onSearch = (searchText) => {
-      setEmbedLink(searchText)
-    }
-    
-    const fetchAudioFile = async () => {
-      const response = await axios.get(embedLink, {
-        responseType: 'blob'
-      });
-      const audioFile = new Blob([response.data], { type: 'audio/mpeg' });
-      setAudioFile(audioFile);
-    }
+  // const [searchText, setSearchText] = useState('')
 
-    const saveAudioFile = () => {
-      saveAs(audiofiles, 'Audiofile.mp3');
-    }
-    
-    console.log(embedLink);
-    console.log(audioFile);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   // console.log(searchText);
+  //   props.onSearch(searchText)
+  // }
     return (
       <>
-          <Navbar onSearch={onSearch}/>
-          <button onClick={fetchAudioFile}>Fetch Audio File</button>
-          <button onClick={saveAudioFile}>Save Audio File</button>
+          
+
+        <iframe id="buttonApi" src="https://convert2mp3s.com/api/button/mp3?url=https://www.youtube.com/watch?v=pRpeEdMmmQ0" width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe>
       </>
     )
   }
