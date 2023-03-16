@@ -1,0 +1,61 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 5.0416326530612245 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "TextTier" 
+        name = "syllables" 
+        xmin = 0 
+        xmax = 5.0416326530612245 
+        points: size = 11 
+        points [1]:
+            number = 0.14190516891973015 
+            mark = "1" 
+        points [2]:
+            number = 0.3213675878086893 
+            mark = "2" 
+        points [3]:
+            number = 0.5624138437170769 
+            mark = "3" 
+        points [4]:
+            number = 0.6853807117851467 
+            mark = "4" 
+        points [5]:
+            number = 0.8277533512239117 
+            mark = "5" 
+        points [6]:
+            number = 1.0140158234125294 
+            mark = "6" 
+        points [7]:
+            number = 1.2858735172835674 
+            mark = "7" 
+        points [8]:
+            number = 1.361617337703249 
+            mark = "8" 
+        points [9]:
+            number = 2.2547146627515158 
+            mark = "9" 
+        points [10]:
+            number = 2.6632424596852533 
+            mark = "10" 
+        points [11]:
+            number = 3.234856043921751 
+            mark = "11" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "silences" 
+        xmin = 0 
+        xmax = 5.0416326530612245 
+        intervals: size = 2 
+        intervals [1]:
+            xmin = 0 
+            xmax = 3.7448163265306125 
+            text = "sounding" 
+        intervals [2]:
+            xmin = 3.7448163265306125 
+            xmax = 5.0416326530612245 
+            text = "silent" 
