@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Input } from '@chakra-ui/react'
 import styles from '../src/styles/Home.module.css'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Navbar = (props) => {
   
@@ -10,7 +11,8 @@ const Navbar = (props) => {
     <>
         <nav>
           <div className="logo">
-            <h1>Tubetrends</h1>
+          <Image src="/bolo.png"  width={155} height={125} />
+          
           </div>
           <Link href="/">Home</Link>
           <Link href="/comparision">comparison</Link>
