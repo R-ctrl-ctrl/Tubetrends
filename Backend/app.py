@@ -1,3 +1,7 @@
+from nltk.sentiment import SentimentIntensityAnalyzer
+import nltk
+import json
+import ast
 from flask import Flask, request, jsonify
 from googleapiclient.discovery import build
 import requests
@@ -6,12 +10,11 @@ from flask_cors import CORS, cross_origin
 api_key = 'AIzaSyCxpeTUSUN2mkaIcKokuOMuMvUaoYEpAPc'
 youtube = build('youtube', 'v3', developerKey=api_key)
 senti_url = "https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1"
-import ast
-import json
 
 
 app = Flask(__name__)
 CORS(app)
+
 
 def senti_analysis(text):
     payload = {
@@ -24,7 +27,8 @@ def senti_analysis(text):
         "X-RapidAPI-Host": "text-analysis12.p.rapidapi.com"
     }
 
-    response = requests.request("POST", senti_url, json=payload, headers=headers)
+    response = requests.request(
+        "POST", senti_url, json=payload, headers=headers)
     return response.text
 
 
@@ -55,11 +59,13 @@ def channels():
 #     basic = 'https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&videoId='
 #     key = '&key=AIzaSyDXhz_36TvSNJr_1z3I2Zz2DQ0V_mIpJ1c'
 #     response = requests.get(f"{basic}{id}{key}")
-#     print(response)
-#     return jsonify({"resp",response.json()})
+#     print(response.text)
+#     return "hello world"
 
-@app.route("/videos_comments/<video_id>")
-def comm(video_id):
+
+@app.route("/videos_comments")
+def videos_comments():
+    video_id = request.args.get('id')
     basic = 'https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&videoId='
     key = '&key=AIzaSyDXhz_36TvSNJr_1z3I2Zz2DQ0V_mIpJ1c'
     response = requests.get(f"{basic}{video_id}{key}")
@@ -68,23 +74,38 @@ def comm(video_id):
     for i in range(len(resp["items"])):
         lis.append(resp["items"][i]["snippet"]
                    ["topLevelComment"]["snippet"]["textOriginal"])
-        if(i == 25):
-            break
 
     # sentiment analysis
     positive = 0
     negative = 0
     neutral = 0
+    sia = SentimentIntensityAnalyzer()
     for i in range(len(lis)):
-        result = senti_analysis(lis[i])
-        d = json.loads(result)
-        if(d["sentiment"] == "neutral"):
-            neutral += 1
-        elif(d["sentiment"] == "negative"):
+        scores = sia.polarity_scores(lis[i])
+        if(scores["compound"] < -0.5):
             negative += 1
-        else:
+        elif(scores["compound"] >0.5):
             positive += 1
-    return jsonify({"result":[positive,negative,neutral]})
+        else:
+            neutral += 1
+    
+    return jsonify({"result": [positive, negative, neutral]})
+
+
+@app.route("/trend_suggestion")
+def sugest():
+    que = request.args.get('id')
+    url = "https://ytube-videos.p.rapidapi.com/sugestions"
+    
+    querystring = {"q":que,"lang":"EN"}
+    headers = {
+	    "X-RapidAPI-Key": "278e27e095msh46f48e2f327416dp199cc5jsn0c9aef95a792",
+	    "X-RapidAPI-Host": "ytube-videos.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    result = json.loads(response.text)
+    return jsonify({"suggestion":result})
 
 
 app.run(debug=True)

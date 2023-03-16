@@ -1,0 +1,19 @@
+.searchbarinput {
+    border-radius: 17em;
+    border: 1px solid gray;
+    padding-left: 2em;
+    padding-right: 19em;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 2em;
+    font-size: larger;
+}
+.submitclass {
+    margin-left: 7em;
+    padding: 15px 36px;
+    background-color: green;
+    font-size: larger;
+    border: 0px solid;
+    border-radius: 5px;
+    color: white;
+}
