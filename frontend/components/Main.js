@@ -13,8 +13,8 @@ const Main = (props) => {
   return (
     <>
       <div>
-        <Search onSearch={onSearch}/>
-        <iframe width="560" height="315" src={embedLink} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <Search onSearch={onSearch} />
+        <iframe width="700" height="450" src={embedLink} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
     </>
   )
